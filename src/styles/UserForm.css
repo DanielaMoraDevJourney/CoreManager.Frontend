@@ -1,0 +1,52 @@
+
+/* Estilos personalizados para el formulario de creación/edición de usuario */
+
+.user-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .user-form-wrapper h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--primary);
+    text-align: center;
+  }
+  
+  .user-form-wrapper label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .user-form-wrapper input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .user-form-wrapper button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .user-form-wrapper button:hover {
+    background-color: #5a36a6;
+  }
+  

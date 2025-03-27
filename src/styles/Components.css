@@ -1,0 +1,179 @@
+/* components.css */
+
+/* Formulario */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .form-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+  
+  .form-container label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: var(--text-dark);
+  }
+  
+  .form-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .form-container button {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .form-container button:hover {
+    background-color: #5a36a6;
+  }
+  
+  /* Cards de Usuario */
+  .user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .usercard {
+    flex: 1 1 320px; 
+    max-width: 350px;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+  }
+  
+  
+  .usercard:hover {
+    transform: scale(1.01);
+  }
+  
+  .usercard-header h3 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.3rem;
+  }
+  
+  .usercard-body {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    flex: 1;
+  }
+  
+  .usercard-body p {
+    margin: 6px 0;
+  }
+
+  .usercard-actions {
+    display: flex;           
+    flex-direction: column;  
+    gap: 0.5rem;             
+    margin-top: 1.5rem;      
+  }
+  
+  .usercard-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-new-user {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    background-color: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-new-user:hover {
+    background-color: #5a36a6;
+    transform: translateY(-2px);
+  }
+
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 1.5rem 1rem;
+    }
+  
+  @media (max-width: 768px) {
+    .usercard {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .user-list-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .section-title {
+      font-size: 1.4rem;
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .user-list-header {
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .btn-new-user {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .usercard {
+      min-width: 100%;
+    }
+  }
+}
