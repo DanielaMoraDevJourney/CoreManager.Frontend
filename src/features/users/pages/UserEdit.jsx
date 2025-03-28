@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getUserById, updateUser } from "../services/userService";
 import "../../../styles/AppStyles.css";
 import "../../../styles/Components.css";
-
+import "../../../styles/UserForm.css";
 
 const UserEdit = () => {
   const [form, setForm] = useState({
@@ -39,6 +39,33 @@ const UserEdit = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    for (const key in form) {
+      if (!form[key]) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+    }
+
+    const birth = new Date(form.birthDate);
+    const today = new Date();
+    if (birth > today) {
+      alert("La fecha de nacimiento no puede estar en el futuro.");
+      return;
+    }
+
+    const ageDiff = today.getFullYear() - birth.getFullYear();
+    const hasHadBirthday =
+      today.getMonth() > birth.getMonth() ||
+      (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+
+    const actualAge = hasHadBirthday ? ageDiff : ageDiff - 1;
+
+    if (actualAge < 18) {
+      alert("El usuario debe tener al menos 18 años.");
+      return;
+    }
+
     try {
       await updateUser(id, form);
       navigate("/users");
@@ -48,32 +75,71 @@ const UserEdit = () => {
     }
   };
 
+  const maxBirthDate = new Date(new Date().setFullYear(new Date().getFullYear() - 18))
+    .toISOString()
+    .split("T")[0];
+
   return (
-    <div className="container mt-4">
-      <h2>Editar usuario</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Nombres</label>
-          <input type="text" name="firstName" className="form-control" value={form.firstName} onChange={handleChange} required />
-        </div>
-        <div className="mb-3">
-          <label>Apellidos</label>
-          <input type="text" name="lastName" className="form-control" value={form.lastName} onChange={handleChange} required />
-        </div>
-        <div className="mb-3">
-          <label>Email</label>
-          <input type="email" name="email" className="form-control" value={form.email} onChange={handleChange} required />
-        </div>
-        <div className="mb-3">
-          <label>Teléfono</label>
-          <input type="text" name="phone" className="form-control" value={form.phone} onChange={handleChange} required />
-        </div>
-        <div className="mb-3">
-          <label>Fecha de nacimiento</label>
-          <input type="date" name="birthDate" className="form-control" value={form.birthDate} onChange={handleChange} required />
-        </div>
-        <button type="submit" className="btn btn-primary">Actualizar</button>
-      </form>
+    <div className="container">
+      <div className="user-form-wrapper">
+        <h2 className="form-title">Editar usuario</h2>
+        <form onSubmit={handleSubmit} className="user-form">
+          <div className="form-group">
+            <label>Nombres</label>
+            <input
+              type="text"
+              name="firstName"
+              value={form.firstName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Apellidos</label>
+            <input
+              type="text"
+              name="lastName"
+              value={form.lastName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Teléfono</label>
+            <input
+              type="text"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Fecha de nacimiento</label>
+            <input
+              type="date"
+              name="birthDate"
+              value={form.birthDate}
+              onChange={handleChange}
+              max={maxBirthDate}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Actualizar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
