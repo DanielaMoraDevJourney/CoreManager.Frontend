@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../../../styles/AppStyles.css";
-
+import "../../../styles/Components.css"
 
 const UserCard = ({ user, onDelete }) => {
     const { id, fullName, email, phone, birthDate } = user;

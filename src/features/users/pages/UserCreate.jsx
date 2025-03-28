@@ -22,6 +22,33 @@ const UserCreate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    for (const key in form) {
+      if (!form[key]) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+    }
+
+    const birth = new Date(form.birthDate);
+    const today = new Date();
+    if (birth > today) {
+      alert("La fecha de nacimiento no puede estar en el futuro.");
+      return;
+    }
+
+    const ageDiff = today.getFullYear() - birth.getFullYear();
+    const hasHadBirthday =
+      today.getMonth() > birth.getMonth() ||
+      (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+
+    const actualAge = hasHadBirthday ? ageDiff : ageDiff - 1;
+
+    if (actualAge < 18) {
+      alert("El usuario debe tener al menos 18 años.");
+      return;
+    }
+
     try {
       await createUser(form);
       navigate("/users");
@@ -30,6 +57,10 @@ const UserCreate = () => {
       console.error(err);
     }
   };
+
+  const maxBirthDate = new Date(new Date().setFullYear(new Date().getFullYear() - 18))
+    .toISOString()
+    .split("T")[0];
 
   return (
     <div className="container">
@@ -83,6 +114,7 @@ const UserCreate = () => {
               name="birthDate"
               value={form.birthDate}
               onChange={handleChange}
+              max={maxBirthDate}
               required
             />
           </div>
