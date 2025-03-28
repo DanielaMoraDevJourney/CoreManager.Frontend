@@ -37,6 +37,11 @@ const UserEdit = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const isValidPhone = (phone) => {
+    const digitsOnly = phone.replace(/\D/g, "");
+    return digitsOnly.length >= 9;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,8 +52,14 @@ const UserEdit = () => {
       }
     }
 
+    if (!isValidPhone(form.phone)) {
+      alert("El número de teléfono debe tener al menos 9 dígitos.");
+      return;
+    }
+
     const birth = new Date(form.birthDate);
     const today = new Date();
+
     if (birth > today) {
       alert("La fecha de nacimiento no puede estar en el futuro.");
       return;

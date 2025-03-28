@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createUser } from "../services/userService.ts";
 import "../../../styles/AppStyles.css";
 import "../../../styles/Components.css";
-import "../../../styles/UserForm.css"; 
+import "../../../styles/UserForm.css";
 
 const UserCreate = () => {
   const [form, setForm] = useState({
@@ -20,6 +20,11 @@ const UserCreate = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const isValidPhone = (phone) => {
+    const digitsOnly = phone.replace(/\D/g, "");
+    return digitsOnly.length >= 9;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,8 +35,14 @@ const UserCreate = () => {
       }
     }
 
+    if (!isValidPhone(form.phone)) {
+      alert("El número de teléfono debe tener al menos 9 dígitos.");
+      return;
+    }
+
     const birth = new Date(form.birthDate);
     const today = new Date();
+
     if (birth > today) {
       alert("La fecha de nacimiento no puede estar en el futuro.");
       return;
