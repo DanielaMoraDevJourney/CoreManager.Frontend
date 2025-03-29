@@ -1,0 +1,120 @@
+/* Sidebar base */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    background: linear-gradient(135deg, #6f42c1, #5e35b1);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    z-index: 999;
+    overflow-x: hidden;
+    backdrop-filter: blur(6px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estado colapsado */
+.sidebar.collapsed {
+    width: 70px;
+}
+
+/* Header del sidebar */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-logo {
+    font-size: 1.2rem;
+    opacity: 0;
+}
+
+/* Botón para colapsar */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* Menú lateral */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li.active a {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.label {
+    transition: opacity 0.3s ease;
+}
+
+/* Ocultar textos si está colapsado */
+.sidebar.collapsed .label {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem 0.5rem;
+    }
+
+    .sidebar.collapsed {
+        width: 60px;
+    }
+
+    .sidebar-menu li a {
+        justify-content: center;
+        padding: 0.75rem 0;
+    }
+
+    .sidebar.collapsed .sidebar-menu li a {
+        gap: 0;
+    }
+}
