@@ -109,9 +109,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
     gap: 1rem;
+    flex-wrap: wrap;
 }
+
 
 .section-title {
     font-size: 2rem;
@@ -135,6 +138,7 @@
 .btn-new-user:hover {
     background-color: #5a36a6;
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(111, 66, 193, 0.4);
 }
 
 
@@ -179,32 +183,32 @@
 
 }
 
-    .empty-message {
-        width: 100%;
-        text-align: center;
-        color: #777;
-        margin-top: 3rem;
-        font-size: 1.1rem;
-        animation: fadeIn 0.4s ease-in-out;
-    }
+.empty-message {
+    width: 100%;
+    text-align: center;
+    color: #777;
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    animation: fadeIn 0.4s ease-in-out;
+}
 
-    .empty-message span {
-        font-size: 3rem;
-        display: block;
-        margin-bottom: 0.5rem;
-    }
+.empty-message span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
 
-    .empty-message p {
-        margin: 0.5rem 0;
-        font-weight: 600;
-    }
+.empty-message p {
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
 
-    .empty-message small {
-        font-size: 0.9rem;
-        color: #999;
-    }
+.empty-message small {
+    font-size: 0.9rem;
+    color: #999;
+}
 
-    
+
 .status-box {
     max-width: 600px;
     margin: 4rem auto;
@@ -252,6 +256,3 @@
         transform: translateY(0);
     }
 }
-
-    
-

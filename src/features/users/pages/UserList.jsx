@@ -57,7 +57,7 @@ const UserList = () => {
 
   return (
     <div className="container">
-      <div className="titletitle">
+      <div className="user-list-header">
         <h2 className="section-title">👥 Usuarios registrados</h2>
         <Link to="/users/create" className="btn btn-primary btn-new-user">
           + Nuevo usuario

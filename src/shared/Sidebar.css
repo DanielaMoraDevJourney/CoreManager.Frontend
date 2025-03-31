@@ -1,4 +1,4 @@
-/* Sidebar base */
+/* Base sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -11,19 +11,17 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
     z-index: 999;
     overflow-x: hidden;
     backdrop-filter: blur(6px);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Estado colapsado */
 .sidebar.collapsed {
     width: 70px;
 }
 
-/* Header del sidebar */
 .sidebar-header {
     display: flex;
     justify-content: space-between;
@@ -40,11 +38,9 @@
 }
 
 .sidebar.collapsed .sidebar-logo {
-    font-size: 1.2rem;
     opacity: 0;
 }
 
-/* Botón para colapsar */
 .toggle-btn {
     background: none;
     border: none;
@@ -58,7 +54,6 @@
     transform: rotate(90deg);
 }
 
-/* Menú lateral */
 .sidebar-menu {
     list-style: none;
     padding: 0;
@@ -93,28 +88,70 @@
     transition: opacity 0.3s ease;
 }
 
-/* Ocultar textos si está colapsado */
 .sidebar.collapsed .label {
     display: none;
 }
 
-/* Responsive */
+ .hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    z-index: 1100;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.5);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+    animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+
     .sidebar {
-        width: 70px;
-        padding: 1rem 0.5rem;
+        width: 100%;
+        max-width: 280px;
+        transform: translateX(-100%);
+        padding: 1rem;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
     }
 
     .sidebar.collapsed {
-        width: 60px;
+        width: 100%;
+        /* en móvil, no colapsamos el sidebar */
     }
 
-    .sidebar-menu li a {
-        justify-content: center;
-        padding: 0.75rem 0;
-    }
-
-    .sidebar.collapsed .sidebar-menu li a {
-        gap: 0;
+    .sidebar .label,
+    .sidebar-logo {
+        display: block;
+        opacity: 1;
     }
 }

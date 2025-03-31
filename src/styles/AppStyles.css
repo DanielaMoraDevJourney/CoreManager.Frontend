@@ -1,11 +1,13 @@
 /* base.css */
 :root {
-    --primary: #6f42c1;
-    --title: #572ea3;
-    --secondary: #f3f4f6;
+    --primary: #7145D6;
+    --primary-dark: #372D5E;
+    --primary-hover: #5B39A8;
     --text-dark: #2e2e2e;
-    --text-more-light: #ffffff;
-    --text-light: #666;
+    --text-secondary: #626299;
+    --background: #F7F7FC;
+    --background-light: #F3EDFF;
+    --info-bg: #E4F0FE;
     --radius: 12px;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --max-width: 1300px;
@@ -14,11 +16,21 @@
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Roboto, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
     background-color: #f9fafb;
     color: var(--text-dark);
     padding: 0;
 }
+
+h1,
+h2,
+h3,
+.section-title {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+
 
 html,
 body {
@@ -63,17 +75,52 @@ a {
 }
 
 .btn-secondary {
-    background-color: var(--secondary);
-    color: var(--text-dark);
+    background-color: #F3EDFF;
+    color: #7145D6;
+    border: 1px solid #7145D6;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+/*
+    background-color: #FFEAEA; 
+    color: #E53935;            
+    border: 1px solid #E53935;
+*/
+
+.btn-secondary:hover {
+    background-color: #E53935;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/*
+.btn-secondary {
+  background-color: #F3EDFF; 
+  color: #7145D6;           
+  border: 1px solid #7145D6;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-secondary::after {
+  content: "⚠️"; 
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
 
 .btn-secondary:hover {
-    background-color: #e42222;
-    transform: translateY(-2px);
-    color: var(--text-more-light);
-
-
+  background-color: #E4D4FF; 
+  color: #5B39A8;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px #7145D620;
 }
+*/
 
 /* Responsive general */
 @media (max-width: 480px) {

@@ -15,26 +15,29 @@
     align-items: center;
     gap: 1rem;
     width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
 }
+
 
 .nav-left,
 .nav-center,
 .nav-right {
     display: flex;
     align-items: center;
+    flex: 1;
 }
 
 .nav-left {
-    flex: 1;
+    justify-content: flex-start;
 }
 
 .nav-center {
-    flex: 2;
     justify-content: center;
+    flex: 2;
 }
 
 .nav-right {
-    flex: 1;
     justify-content: flex-end;
     gap: 1rem;
 }
@@ -44,33 +47,14 @@
     font-weight: bold;
     color: var(--primary);
     white-space: nowrap;
-    padding-left: 1rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--primary);
-    transition: 0.2s ease;
-}
-
-.nav-links li a:hover {
-    opacity: 0.7;
+    padding-left: 0.5rem;
 }
 
 .logout-btn {
     background: none;
     border: none;
     color: var(--primary);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     cursor: pointer;
     transition: opacity 0.2s ease;
     padding-right: 1.5rem;
@@ -80,6 +64,7 @@
     opacity: 0.7;
 }
 
+/* Buscador */
 .search-wrapper {
     position: relative;
     width: 100%;
@@ -87,13 +72,12 @@
 }
 
 .search-input {
-    padding: 0.4rem 1rem 0.4rem 2.5rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
     border-radius: 8px;
     border: none;
     outline: none;
     font-size: 0.95rem;
     width: 100%;
-    max-width: 400px;
     background-color: #f3f3f3;
     color: var(--text-dark);
     box-shadow: 0 0 0 2px transparent;
@@ -115,24 +99,47 @@
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+
+    }
+
     .navbar-content {
         flex-direction: column;
-        align-items: stretch;
-    }
-
-    .nav-center {
-        order: 3;
-        margin-top: 1rem;
         justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+
     }
 
+    .nav-left,
+    .nav-center,
     .nav-right {
         justify-content: center;
-        order: 2;
+        width: 100%;
     }
 
-    .nav-left {
-        justify-content: center;
-        order: 1;
+    .nav-logo {
+        padding-left: 0;
+        font-size: 1.4rem;
+        padding-right: 4.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .search-wrapper {
+        /*max-width: 100%;
+        padding: 0 1rem;*/
+        padding-right: 6.5rem;
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .logout-btn {
+        padding: 0;
+        padding-right: 5rem;
+        padding-top: 0.8rem;
+
+
     }
 }
