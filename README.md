@@ -12,16 +12,6 @@ CoreManager is a responsive web application built with **React + Vite**, designe
 - 🌈 Custom color palette and typography (Poppins font)
 - ⚡ Built with Vite for fast development experience
 
-## 🖼️ Screenshots
-
-| Desktop View | Mobile View |
-|--------------|-------------|
-| ![Desktop Screenshot](./screenshots/desktop.png) | ![Mobile Screenshot](./screenshots/mobile.png) |
-
-> Note: Replace with real images or remove this section if not available.
-
----
-
 ## 🚀 Technologies Used
 
 - [React](https://reactjs.org/)
@@ -33,7 +23,7 @@ CoreManager is a responsive web application built with **React + Vite**, designe
 
 ---
 
-## 🧑‍💻 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -69,7 +59,7 @@ The app will be available at `http://localhost:####`
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -108,9 +98,10 @@ npm run preview
 
 ---
 
-## 📜 License
+## Author
 
-This project is licensed under the [MIT License](LICENSE).
+Daniela Mora – Web Engineering Project
+📚 7th semester – 2025
 
 ---
 
