@@ -55,7 +55,7 @@ Run the app locally:
 npm run dev
 ```
 
-The app will be available at `http://localhost:####` (Your port number may vary)
+The app will be available at `http://localhost:{PORT}` (Your port number may vary)
 
 ---
 
