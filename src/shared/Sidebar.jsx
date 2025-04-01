@@ -60,12 +60,12 @@ const Sidebar = () => {
                             <span className="label">Inicio</span>
                         </Link>
                     </li>
-                    <li className={location.pathname.startsWith("/users") ? "active" : ""}>
+{/*                     <li className={location.pathname.startsWith("/users") ? "active" : ""}>
                         <Link to="/users" onClick={handleLinkClick}>
                             <FaUsers className="icon" />
                             <span className="label">Usuarios</span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </aside>
         </>
