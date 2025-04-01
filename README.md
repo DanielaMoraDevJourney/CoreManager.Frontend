@@ -7,7 +7,7 @@ CoreManager is a responsive web application built with **React + Vite**, designe
 - 🧭 Sidebar navigation with mobile support (hamburger menu)
 - 🧍‍♂️ User management: list, add, edit, and delete users
 - 🔍 Real-time search by name or email
-- 💅 Clean and modern UI inspired by Cabify
+- 💅 Clean and modern UI 
 - 📱 Fully responsive (desktop & mobile)
 - 🌈 Custom color palette and typography (Poppins font)
 - ⚡ Built with Vite for fast development experience
@@ -55,8 +55,30 @@ Run the app locally:
 npm run dev
 ```
 
-The app will be available at `http://localhost:####`
+The app will be available at `http://localhost:####` (Your port number may vary)
 
+---
+
+## 🔧 Backend Configuration (API Port)
+
+Before running the frontend, make sure your backend (.NET Core) is running.
+**Important:** The backend port number may change when running locally (e.g., `https://localhost:7168` or similar).
+
+You must update this port in the `axios.ts` file located at:
+
+```
+src/api/axios.ts
+```
+
+Find and edit the `baseURL` line with the correct port for your backend:
+
+```ts
+const api = axios.create({
+baseURL: "https://localhost:7168/api", // ← Make sure it matches your backend port
+});
+```
+
+Save your changes and run the frontend again if necessary.
 ---
 
 ## Project Structure
@@ -77,6 +99,7 @@ src/
 ## 🧠 Learning Resources
 
 This project uses:
+
 - `@vitejs/plugin-react` – [Docs](https://github.com/vitejs/vite-plugin-react)
 - `eslint` – for linting and code consistency
 - `react-router-dom` – for routing
@@ -100,11 +123,8 @@ npm run preview
 
 ## Author
 
-Daniela Mora – Web Engineering Project
+Daniela Mora – Web Engineering Project  
 📚 7th semester – 2025
 
 ---
 
-## 🙌 Acknowledgements
-
-- Designed with care to balance simplicity and functionality
