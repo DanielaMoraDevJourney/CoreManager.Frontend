@@ -107,5 +107,4 @@ Daniela Mora – Web Engineering Project
 
 ## 🙌 Acknowledgements
 
-- Inspired by Cabify's modern UI
 - Designed with care to balance simplicity and functionality
