@@ -6,7 +6,7 @@ import "../../../styles/Login.css";
 import logo from "../../../resources/LOGO2.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
     const [form, setForm] = useState({ username: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +34,8 @@ const Login = () => {
             const token = response.data.token;
 
             localStorage.setItem("token", token);
+            setIsAuthenticated(true); 
+
             Swal.fire({
                 icon: "success",
                 title: "¡Bienvenido!",
