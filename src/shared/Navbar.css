@@ -143,3 +143,15 @@
 
     }
 }
+
+.admin-greeting {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-name {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+}

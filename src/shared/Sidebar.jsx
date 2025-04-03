@@ -54,18 +54,19 @@ const Sidebar = () => {
                 </div>
 
                 <ul className="sidebar-menu">
-                    <li className={location.pathname === "/" ? "active" : ""}>
-                        <Link to="/" onClick={handleLinkClick}>
-                            <FaHome className="icon" />
-                            <span className="label">Inicio</span>
-                        </Link>
-                    </li>
-{/*                     <li className={location.pathname.startsWith("/users") ? "active" : ""}>
+                    <li className={location.pathname.startsWith("/users") ? "active" : ""}>
                         <Link to="/users" onClick={handleLinkClick}>
                             <FaUsers className="icon" />
                             <span className="label">Usuarios</span>
                         </Link>
-                    </li> */}
+                    </li>
+
+                    <li className={location.pathname.startsWith("/admin-users") ? "active" : ""}>
+                        <Link to="/admin-users" onClick={handleLinkClick}>
+                            <FaUsers className="icon" />
+                            <span className="label">Administradores</span>
+                        </Link>
+                    </li>
                 </ul>
             </aside>
         </>
