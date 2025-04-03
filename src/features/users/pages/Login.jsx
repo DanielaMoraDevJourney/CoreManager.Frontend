@@ -11,7 +11,6 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-    
 
     const togglePassword = () => {
         setShowPassword((prev) => !prev);
@@ -35,8 +34,6 @@ const Login = () => {
             const token = response.data.token;
 
             localStorage.setItem("token", token);
-            localStorage.setItem("adminName", response.data.username);
-
             Swal.fire({
                 icon: "success",
                 title: "¡Bienvenido!",
@@ -72,7 +69,6 @@ const Login = () => {
                             value={form.username}
                             onChange={handleChange}
                             required
-                            autoFocus
                             placeholder=" "
                         />
                         <label htmlFor="username">Usuario</label>
@@ -86,7 +82,6 @@ const Login = () => {
                             value={form.password}
                             onChange={handleChange}
                             required
-                            autoFocus
                             placeholder=" "
                             aria-label="Contraseña"
                         />
@@ -94,10 +89,10 @@ const Login = () => {
                         <span
                             className="toggle-password"
                             onClick={togglePassword}
-                            title={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"} // esto sí se ve
+                            aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
                             role="button"
                             tabIndex={0}
-                            onKeyDown={(e) => (e.key === "Enter" || e.key === " " ? togglePassword() : null)}
+                            onKeyDown={(e) => e.key === "Enter" && togglePassword()}
                         >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </span>
