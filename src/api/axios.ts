@@ -1,13 +1,21 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
+/*
 const api = axios.create({
-  baseURL: "https://coremanager-api-1.onrender.com/api",
+  baseURL: "https://localhost:7293/api",
   headers: {
     "Content-Type": "application/json",
   },
 });
+*/
 
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:7293/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 
 api.interceptors.request.use((config) => {
